@@ -1,0 +1,367 @@
+*{
+  outline: none; /* Знаю что это зло: в идеале прописать под дизайн сайта; */
+}
+
+html{
+  font-family: 'Open Sans', 'Arial', sans-serif;
+}
+
+.wrapper{
+  max-width: 1000px;
+  height: 100%;
+  position: relative;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+
+.card{
+  width: 336px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0 0 5px 5px;
+}
+
+.card-top{
+  position: relative;
+  box-sizing: border-box;
+  transition: padding ease 0.2s;
+}
+
+.card-top-header{
+  position: relative;
+  padding: 19px 18px 19px 110px;
+  height: 62px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  z-index: 7;
+  transition: padding ease 0.2s;
+}
+
+.state-3 .card-top-header{
+  padding-left: 50px;
+}
+
+.card-top-header::before{
+  content: '';
+  position: absolute;
+  width: 79.06px;
+  height: 27.17px;
+  background: url(../img/logo.svg);
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: 79px 27px;
+  left: 25px;
+  top: 11px;
+  z-index: 7;
+  transition: width ease 0.3s;
+}
+
+.state-3 .card-top-header::before{
+  width: 16px;
+  animation-duration: 0.4s;
+  animation-name: logo-move;
+  top: 22px;
+}
+
+.card-top::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #ffffff;
+  z-index: 5;
+}
+
+.form-search{
+  box-sizing: border-box;
+  position: relative;
+  padding-right: 9px;
+  height: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.form-search::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -9px;
+  height: 18px;
+  width: 1px;
+  background: #ffffff;
+  border-radius: 10px;
+  transition: background ease 0.2s;
+}
+
+.state-3 .form-search::before{
+  background: #20bf55;
+  top: 50%;
+}
+
+.state-4 .form-search::before{
+  background: #ffffff;
+}
+
+.form-search-text{
+  width: 0;
+  box-sizing: border-box;
+  padding: 2px 0 2px 20px;
+  padding-left: 0;
+  font-family: 'Open Sans', 'Arial', sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #9b9b9b;
+  border: 0;
+  transition: all ease 0.2s;
+}
+
+.state-3 .form-search-text{
+  width: 100%;
+  padding-left: 20px;
+}
+
+.state-3 .form-search-text:focus,
+.state-4 .form-search-text{
+  padding-left: 0;
+}
+
+.form-search-text::placeholder{
+  color: #9b9b9b;
+}
+
+.form-search-button{
+  border: 0;
+  padding: 0 6px;
+  position: absolute;
+  background: url(../img/search.svg) 50% 50% no-repeat #ffffff;
+  text-indent: -9999px;
+  overflow: hidden;
+  background-size: 16px 14px;
+  width: 26px;
+  height: 100%;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.card-control{
+  position: relative;
+  width: 30px;
+  height: 24px;
+  box-sizing: border-box;
+  padding-left: 9px;
+  flex-shrink: 0;
+}
+
+.card-control::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -9px;
+  height: 18px;
+  width: 2px;
+  background: rgba(155, 155, 155, 0.2);
+  border-radius: 10px;
+}
+
+.card-control-button{
+  padding: 0 6px;
+  overflow: hidden;
+  text-indent: -9999px;
+  cursor: pointer;
+  background: #ffffff;
+  border: 0;
+  width: 26px;
+  position: absolute;
+  height: 100%;
+  z-index: 1;
+}
+
+.card-control-button::after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-repeat: no-repeat;
+}
+
+.state-1 .card-control-button-more,
+.state-2 .card-control-button-more{
+  z-index: 5;
+}
+
+.state-4 .card-control-button-close{
+  z-index: 5;
+}
+
+.card-control-button-more::after,
+.state-1 .card-control-button-more::after{
+  background-image: url(../img/arrow.svg);
+  width: 10.6px;
+  height: 6.9px;
+  margin-top: -3.45px;
+  margin-left: -5.3px;
+  background-size: 10.6px 6.9px;
+  transform: rotate(0deg);
+  transition: transform ease 0.2s;
+}
+
+.state-2 .card-control-button-more::after{
+  transform: rotate(-180deg);
+}
+
+.card-control-button-close::after{
+  background-image: url(../img/close.svg);
+  background-size: 19px 19px;
+  width: 19px;
+  height: 19px;
+  margin-top: -9.5px;
+  margin-left: -9.5px;
+  transform: rotate(0deg);
+}
+
+.card-bottom{
+  padding: 0 25px 0;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  transition: padding ease 0.2s;
+}
+
+.state-1 .card-bottom{
+  padding-bottom: 25px;
+}
+
+.card-bottom-title{
+  position: relative;
+  margin: 0 0 9px;
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 800;
+  color: #222222;
+  margin-top: -600px;
+  transition: margin ease 0.3s;
+}
+
+.state-1 .card-bottom-title{
+  margin-top: 0;
+}
+
+.card-bottom-text{
+  font-family: 'Open Sans', 'Arial', sans-serif;
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #222222;
+  margin-bottom: 4px;
+}
+
+.card-bottom-text p{
+  margin: 0 0 15px;
+}
+
+.card-bottom-text p:last-of-type{
+  margin-bottom: 0;
+}
+
+.card-bottom-link{
+  font-family: 'Open Sans', 'Arial', sans-serif;
+  font-size: 15px;
+  line-height: 21px;
+  font-weight: 400;
+  color: #20BF55;
+  text-decoration-color: rgba(32, 191, 85, 0.35);
+  transition: text-decoration-color ease 0.2s;
+}
+
+.card-bottom-link:hover{
+  text-decoration-color: rgba(32, 191, 85, 0);
+}
+
+.card-search{
+  position: absolute;
+  background: #ffffff;
+  box-sizing: border-box;
+  padding: 10px 0 10px;
+  top: 58px;
+  border-top: 1px solid rgba(155, 155, 155, 0.2);
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  display: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0 0 5px 5px;
+}
+
+.state-4 .card-search{
+  display: block;
+  animation-duration: 0.6s;
+  animation-name: search-move;
+}
+
+.card-search-list{
+  padding: 0;
+  margin: 0;
+}
+
+.card-search-item{
+  list-style:none;
+  font-family: 'Open Sans', 'Arial', sans-serif;
+  font-size: 14px;
+}
+
+.card-search-link{
+  display: block;
+  text-decoration: none;
+  color: #222222;
+  box-sizing: border-box;
+  padding: 12px 20px 12px 50px;
+}
+
+.card-search-link:hover{
+  background: #f5f5f5;
+}
+
+.card-search-link .cs-country{
+  color: #b4b4b4;
+}
+
+.cs-value{
+  font-weight: 700;
+}
+
+@keyframes logo-move{
+  0% {
+    top: 11px;
+  }
+
+  75% {
+    top: 11px;
+  }
+
+  100% {
+    top: 22px;
+  }
+}
+
+@keyframes search-move{
+  0% {
+    display: block;
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
