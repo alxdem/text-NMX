@@ -1,3 +1,3 @@
 # Тестовое задание от Алексей Демидова
 
-Рабочий пример: https://alxdem.github.io/text-NMX/
+Рабочий пример: [alxdem.github.io/text-NMX](https://alxdem.github.io/text-NMX/)
