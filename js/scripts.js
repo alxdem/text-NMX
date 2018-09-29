@@ -4,57 +4,72 @@
   var cardSearchButtons = document.querySelectorAll('.form-search-btn');
   var cardCloseButtons = document.querySelectorAll('.card-control-btn-close');
   var formSearchInputs = document.querySelectorAll('.form-search-txt');
+  var stateArrow = [1, 2, 3, 4];
 
-  var cardStateSet = function (e, stateNumb) {
-    var target = e.target;
+  var stateObj = {
+    // Метод очистки состояний
+    'stateClear': function (clearElement) {
+      stateArrow.forEach( function(it, elemIndex) {
+        clearElement.classList.remove('state-' + it);
+      });
+    },
+    // Метод установки состояния 1 обработчик - 1 состояние
+    'cardStateSet': function (e, stateNumb) {
+      var target = e.target;
 
-    while (!target.classList.contains('wrapper')) {
-      if (target.classList.contains('card')) {
+      while (!target.classList.contains('wrapper')) {
+        if (target.classList.contains('card')) {
+          var card = target;
 
-        var card = target;
+          this.stateClear(card);
+          card.classList.add('state-' + stateNumb);
 
-        switch (stateNumb) {
-          case 2:
-            if (!card.classList.contains('state-1')) {
-              card.setAttribute('class', 'card state-1');
-            } else {
-              card.setAttribute('class', 'card state-2');
-            }
-          break;
-          case 3:
-            card.setAttribute('class', 'card state-3');
-            break;
-
-          case 4:
-            card.setAttribute('class', 'card state-2');
-            break;
-
-          case 5:
-            card.setAttribute('class', 'card state-3 state-4');
-            break;
+          return;
         }
 
-        return;
+        target = target.parentNode;
       }
+    },
+    // Метод установки состояния 1 обработчик - 2 состояния
+    'cardStateSet2': function (e) {
+      var target = e.target;
 
-      target = target.parentNode;
+      while (!target.classList.contains('wrapper')) {
+        if (target.classList.contains('card')) {
+          var card = target;
+          var state = 0;
+
+          if (!card.classList.contains('state-1')) {
+            var state = 1;
+          } else {
+            var state = 2;
+          }
+
+          this.stateClear(card);
+          card.classList.add('state-' + state);
+
+          return;
+        }
+
+        target = target.parentNode;
+      }
     }
   };
 
   var moreBtnClickHandler = function (e) {
-    cardStateSet(e, 2);
+    stateObj.cardStateSet2(e);
   };
 
   var searchBtnClickHandler = function (e) {
-    cardStateSet(e, 3);
+    stateObj.cardStateSet(e, 3);
   };
 
   var closeBtnClickHandler = function (e) {
-    cardStateSet(e, 4);
+    stateObj.cardStateSet(e, 2);
   };
 
   var searchInputKeypressHandler = function (e) {
-    cardStateSet(e, 5);
+    stateObj.cardStateSet(e, 4);
   };
 
   // Задал обработчики в цикле, на случай если карточка будет не одна
