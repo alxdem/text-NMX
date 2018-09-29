@@ -4,14 +4,16 @@
   var cardSearchButtons = document.querySelectorAll('.form-search-btn');
   var cardCloseButtons = document.querySelectorAll('.card-control-btn-close');
   var formSearchInputs = document.querySelectorAll('.form-search-txt');
-  var stateArrow = [1, 2, 3, 4];
 
   var stateObj = {
+    // Количество состояний
+    'stateCount': 4,
+
     // Метод очистки состояний
     'stateClear': function (clearElement) {
-      stateArrow.forEach( function(it, elemIndex) {
-        clearElement.classList.remove('state-' + it);
-      });
+      for(var i = 1; i < this.stateCount + 1; i++) {
+        clearElement.classList.remove('state-' + i);
+      }
     },
     // Метод установки состояния 1 обработчик - 1 состояние
     'cardStateSet': function (e, stateNumb) {
@@ -30,6 +32,7 @@
         target = target.parentNode;
       }
     },
+
     // Метод установки состояния 1 обработчик - 2 состояния
     'cardStateSet2': function (e) {
       var target = e.target;
